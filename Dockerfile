@@ -30,7 +30,7 @@ COPY entryPoint.sh .
 ENTRYPOINT ["sh","./entryPoint.sh"]
 
 
-docker run -e RUN_PROFILE="test" -e SYSTEM_ENV="-Dmyprofile=dev" -e RUN_ARGS="--spring.profiles.active=ds" -e JVM_MIN=100 -e JVM_MAX=200 -v /home/jerry/dockerLog:/opt/log -it helloworld --spring.profiles.active=ds
+#docker run -e RUN_PROFILE="test" -e SYSTEM_ENV="-Dmyprofile=dev" -e RUN_ARGS="--spring.profiles.active=ds" -e JVM_MIN=100 -e JVM_MAX=200 -v /home/jerry/dockerLog:/opt/log -it helloworld --spring.profiles.active=ds
 
 
 
