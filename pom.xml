@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jerry</groupId>
-	<artifactId>helloworld</artifactId>
+	<artifactId>dockerfile-template</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>helloworld</name>
-	<description>helloworld</description>
+	<name>dockerfile-template</name>
+	<description>dockerfile-template</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
