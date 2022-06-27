@@ -35,7 +35,7 @@ buildAndPushImage(){
 
 }
 
-#rm -rf Dockerflie-template
+
 echo "###################欢迎使用构建镜像容器脚本########################"
 echo "1.通过git仓库获取构建镜像"
 echo "2.当前代码路径"
@@ -46,8 +46,8 @@ read -p "input your select,please:" exec_type
 case $exec_type in
 1)
   echo "己选择通过代码仓库构建镜像"
-  read -p "input your prject address:" git_prj_url
-  read -p "qing shu ru daimai fenzhi" branch
+  read -p "请输入git地址:" git_prj_url
+  read -p "请输入分支名称" branch
 
   code_path=`basename $git_prj_url |awk -F . {'print $1'}`
   rm -rf $code_path
@@ -63,19 +63,19 @@ case $exec_type in
   ;;
 2)
   echo "代码仓库像己存在,"
-  read -p "请输gongcheng mulu :" code_path
-  read -p "qing shu ru daimai fenzhi" branch
+  read -p "请输入代码目录 :" code_path
+  read -p "请输入分支名称" branch
   cd $code_path
   git pull
   git checkout -b $branch origin/$branch
 
-  mvn clean install -Dmaven.test.skip=true\
+  mvn clean install -Dmaven.test.skip=true
 
   cd ..
   ;;
 3)
   echo "3"
-  read -p "请输gongcheng mulu :" code_path
+  read -p "请输入jar包目录 :" code_path
   jar_file="./*.jar"
 esac
 
