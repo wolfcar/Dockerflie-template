@@ -1,7 +1,7 @@
 #!/bin/bash
 #脚本配置信息全局变量
 #镜像私有仓库
-docker_domain=""
+docker_domain="localhost:1234"
 project_path="ffg"
 docker_user=""
 docker_pwd=""
@@ -22,7 +22,7 @@ buildAndPushImage(){
   cd $code_path
   if [ ! $jar_file ]; then
     echo "docker build -t ${code_path}:${version} ."
-    docker build -t abc:${version} .
+    docker build -t $code_path:${version} .
   else
     echo "docker build  --build-arg JAR_FILE=${jar_file} -t ${code_path}:${version} ."
     docker build --build-arg JAR_FILE=${jar_file} -t ${code_path}:${version} .
@@ -49,9 +49,10 @@ case $exec_type in
   read -p "input your prject address:" git_prj_url
   read -p "qing shu ru daimai fenzhi" branch
 
+  code_path=`basename $git_prj_url |awk -F . {'print $1'}`
+  rm -rf $code_path
   git clone $git_prj_url
 
-  code_path=`basename $git_prj_url |awk -F . {'print $1'}`
   echo $code_path
 
   cd $code_path
